@@ -43,4 +43,16 @@ class  Database
 		return all
 	end
 
+	def modify(attribute, oldvalue, newvalue)
+		@contact_array.each do |contact|
+		
+		 if contact.check_match(oldvalue)
+		 	 contact.send(attribute + '=', newvalue ) 
+		 return true
+		 end
+
+		end
+
+
+	end
 end
