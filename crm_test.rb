@@ -18,10 +18,17 @@ class CrmTest < Test::Unit::TestCase
 		#knowing zero contacts are in database, we check to size to see if a contact has been 
 		#added 
 
-		@database.add(contact)
+		@database.add(@contact)
 
-		assert_equal 1, @database.@contact_array.size
+		assert_equal 1, @database.contact_array.size
 
+	end
+
+	def test_delete_contact
+		@database.add(@contact)
+		assert_equal 1, @database.contact_array.size
+		@database.delete("Eric")
+		assert_equal 0, @database.contact_array.size
 	end
 
 end
