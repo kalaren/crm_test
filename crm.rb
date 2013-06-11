@@ -11,7 +11,9 @@ class  Database
 	end
 
 	def add(contact)
-		@contact_array << contact
+		return @contact_array << contact if contact.class == Contact
+		return @invalid
+
 	end
 
 	def delete(contactinfo)

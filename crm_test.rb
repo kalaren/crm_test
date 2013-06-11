@@ -72,6 +72,13 @@ class CrmTest < Test::Unit::TestCase
 		assert_equal "Invalid Information", @database.modify("firstname", "Erc", "Dave")
 	end
 
+	def test_addfail
+
+
+		assert_equal "Invalid Information", @database.add("pie")
+
+	end
+
 
 
 end
