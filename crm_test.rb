@@ -46,7 +46,7 @@ class CrmTest < Test::Unit::TestCase
 	end
 
 	def test_modify_attribute_with_valid_information
-		assert_equal true, @database.modify("firstname", "Eric", "Dave")
+		assert_equal "1 Dave Szeto Email@mail notes\n", @database.modify("firstname", "Eric", "Dave")
 	end
 
 
