@@ -12,10 +12,11 @@ class ContactTest < Test::Unit::TestCase
 	end
 
 	def test_displayinfo
-
-
 		assert_equal "1 Eric Szeto Email@mail notes\n",  @contact.display_info
+	end
 
-
+	def test_check_match
+		assert_equal true, @contact.check_match("Eric")
+		assert_equal nil, @contact.check_match("ic")
 	end
 end
