@@ -34,16 +34,21 @@ class CrmTest < Test::Unit::TestCase
 
 	
 	def test_display_all_output
-	@database.add(@contact)
-	@database.add(@contact1)
-
-	assert_equal "1 Eric Szeto Email@mail notes\n2 Lakshay Khatter gmail notes\n",@database.display_all
+		@database.add(@contact)
+		@database.add(@contact1)
+		assert_equal "1 Eric Szeto Email@mail notes\n2 Lakshay Khatter gmail notes\n",@database.display_all
 	end
 
 	def test_display_specific_contact
 		@database.add(@contact)
 		@database.add(@contact1)
-		assert_equal "2 Lakshay Khatter gmail notes\n", @display_contact("Lakshay")
+		assert_equal "2 Lakshay Khatter gmail notes\n", @database.display_contact("Lakshay")
+	end
+
+	def test_display_attributes_of_contacts
+		@database.add(@contact)
+		@database.add(@contact1)
+		assert_equal "Eric\nLakshay\n", @database.display_by_attribute("firstname")
 	end
 
 end
