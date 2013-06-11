@@ -7,6 +7,7 @@ class  Database
 	def initialize()
 		@contact_array = []
 		@invalid = "Invalid Information"
+		@attr_list = ["id", "firstname", "lastname", "email", "notes"]
 	end
 
 	def add(contact)
@@ -37,17 +38,22 @@ class  Database
 
 	def display_by_attribute(attribute)
 		all = ""
-		@contact_array.each do |contact|
-			all += contact.send(attribute) + "\n"
+		if @attr_list.index(attribute)
+			@contact_array.each do |contact|
+				all += contact.send(attribute) + "\n"
+			end
+			return all
 		end
-		return all
+		return @invalid
 	end
 
 	def modify(attribute, oldvalue, newvalue)
-		@contact_array.each do |contact|
-		 	if contact.check_match(oldvalue)
-		 		contact.send(attribute + '=', newvalue ) 
-		 		return contact.display_info
+		if @attr_list.index(attribute)
+			@contact_array.each do |contact|
+			 	if contact.check_match(oldvalue)
+			 		contact.send(attribute + '=', newvalue ) 
+			 		return contact.display_info
+				end
 			end
 		end
 		return @invalid
