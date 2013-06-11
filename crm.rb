@@ -12,6 +12,16 @@ class  Database
 		@contact_array << contact
 	end
 
+	def delete(contactinfo)
+
+		contact_array.each do |contact|
+			
+			@contact_array.delete(contact) if contact.display_info.include? contactinfo
+			
+		end
+
+	end	
+
 
 
 end

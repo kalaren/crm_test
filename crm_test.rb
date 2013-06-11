@@ -7,6 +7,7 @@ class CrmTest < Test::Unit::TestCase
 	def setup
 		@database = Database.new
 		@contact = Contact.new(1, "Eric", "Szeto", "Email@mail", "notes")
+		@contact1 = Contact.new(2, "Lakshay", "Khatter", "gmail" , "notes")
 
 	end
 
@@ -29,6 +30,18 @@ class CrmTest < Test::Unit::TestCase
 		assert_equal 1, @database.contact_array.size
 		@database.delete("Eric")
 		assert_equal 0, @database.contact_array.size
+	end
+
+	
+	def test_display_all_output
+	@database.add(@contact)
+	@database.add(@contact1)
+
+	assert_equal "1 Eric Szeto Email@mail notes\n2 Lakshay Khatter gmail notes",display_all
+
+
+
+
 	end
 
 end
